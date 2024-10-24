@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>السوبر المصرى</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #690202ea;
+        margin: 0;
+        text-align: center;
+      }
+      img {
+        position: absolute;
+        z-index: -1;
+        filter: brightness(50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      h1 {
+        margin-bottom: 20px;
+        color: #fff;
+      }
+      div {
+        margin-bottom: 10px;
+        font-size: 25px;
+      }
+      p {
+        color: #00ffea;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 30px;
+        }
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 450px) {
+        p {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="111.jpg" alt="Background Image" />
+    <h1>كم مر من وقت من فوز الاهلى على الزمالك فى نهائى السوبر المصرى</h1>
+    <div class="aa">
+      <div id="time-elapsed"></div>
+    </div>
+    <script>
+      const startDate = new Date("2024-10-24T23:05:00");
+
+      function updateTime() {
+        const now = new Date();
+        const timeDiff = now - startDate;
+
+        let seconds = Math.floor(timeDiff / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
+        let weeks = Math.floor(days / 7);
+
+        seconds %= 60;
+        minutes %= 60;
+        hours %= 24;  
+
+        document.getElementById("time-elapsed").innerHTML = `
+        <pre>
+<p>الثوانى : ${seconds}
+
+الدقائق: ${minutes}
+
+الساعات: ${hours}
+
+الايام: ${days}
+
+الاسابيع: ${weeks}</p>
+        </pre>
+        `;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>
